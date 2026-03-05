@@ -1,0 +1,3 @@
+{
+    "query": "INSERT INTO categories (name, slug, description, display_order) VALUES \n('Helados', 'icecream', 'Nuestras famosas bolas de helado artesanal.', 1),\n('Bowls', 'bowls', 'Tropicales, frescos y llenos de energía.', 2),\n('Bebidas', 'drinks', 'Malteadas y refrescos naturales.', 3)\nON CONFLICT (slug) DO NOTHING;"
+}

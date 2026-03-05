@@ -2,13 +2,30 @@
 
 @theme {
   --color-muu-blue: #3A47CD;
+  /* The vibrant blue from the logo */
   --color-muu-deep: #1F2250;
+  /* Deep navy text */
   --color-muu-cream: #FFF7EF;
-  --color-muu-orange: #D06524;
+  /* Soft background */
+  --color-muu-orange: #FF6B00;
+  /* Electric orange from the logo dot */
   --color-muu-white: #FFFFFF;
-  
+
   --font-display: "Outfit", sans-serif;
   --font-sans: "Inter", sans-serif;
+
+  --radius-muu: 2rem;
+}
+
+@layer utilities {
+  .cow-print {
+    background-color: #ffffff;
+    background-image: radial-gradient(#1f2250 20%, transparent 20%),
+      radial-gradient(#1f2250 20%, transparent 20%);
+    background-position: 0 0, 50px 50px;
+    background-size: 100px 100px;
+    opacity: 0.05;
+  }
 }
 
 @layer base {
@@ -21,11 +38,11 @@
   .muu-button-primary {
     @apply bg-muu-blue text-white rounded-muu py-3 px-6 font-semibold active:scale-95 transition-all shadow-md hover:shadow-lg disabled:opacity-50;
   }
-  
+
   .muu-button-secondary {
     @apply bg-muu-cream text-muu-blue rounded-muu py-3 px-6 font-semibold active:scale-95 transition-all shadow-sm hover:shadow-md disabled:opacity-50;
   }
-  
+
   .muu-card {
     @apply bg-muu-cream rounded-muu p-4 shadow-sm border border-muu-blue/5;
   }
@@ -51,6 +68,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -79,9 +97,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -92,9 +112,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
