@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Plus, Info, Leaf, Soup, Star } from 'lucide-react';
+import { Search, Plus, Info, Leaf, Soup, Star, Compass } from 'lucide-react';
 import { useCartStore } from '../store/cartStore';
 import { supabase } from '../lib/supabase';
 
@@ -90,8 +90,8 @@ const Menu: React.FC = () => {
                     <button
                         onClick={() => setActiveCategory('all')}
                         className={`px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest whitespace-nowrap transition-all border-2 ${activeCategory === 'all'
-                                ? 'bg-muu-blue text-white border-muu-blue shadow-lg shadow-muu-blue/20'
-                                : 'bg-white text-muu-deep/40 border-muu-blue/5 hover:border-muu-blue/20'
+                            ? 'bg-muu-blue text-white border-muu-blue shadow-lg shadow-muu-blue/20'
+                            : 'bg-white text-muu-deep/40 border-muu-blue/5 hover:border-muu-blue/20'
                             }`}
                     >
                         Todos
@@ -101,8 +101,8 @@ const Menu: React.FC = () => {
                             key={cat.id}
                             onClick={() => setActiveCategory(cat.slug)}
                             className={`px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest whitespace-nowrap transition-all border-2 ${activeCategory === cat.slug
-                                    ? 'bg-muu-blue text-white border-muu-blue shadow-lg shadow-muu-blue/20'
-                                    : 'bg-white text-muu-deep/40 border-muu-blue/5 hover:border-muu-blue/20'
+                                ? 'bg-muu-blue text-white border-muu-blue shadow-lg shadow-muu-blue/20'
+                                : 'bg-white text-muu-deep/40 border-muu-blue/5 hover:border-muu-blue/20'
                                 }`}
                         >
                             {cat.name}

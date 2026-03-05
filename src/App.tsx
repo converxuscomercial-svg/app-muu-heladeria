@@ -7,16 +7,16 @@ import Promos from './pages/Promos';
 import Club from './pages/Club';
 import AdminLayout from './components/AdminLayout';
 import AdminDashboard from './pages/AdminDashboard';
-
-const AdminProducts = () => <div className="text-center py-20 text-4xl font-display font-bold italic text-muu-blue">ADMIN: PRODUCTOS</div>;
-const AdminPromos = () => <div className="text-center py-20 text-4xl font-display font-bold italic text-muu-blue">ADMIN: PROMOS</div>;
-const AdminUsers = () => <div className="text-center py-20 text-4xl font-display font-bold italic text-muu-blue">ADMIN: CLUB</div>;
-const AdminSettings = () => <div className="text-center py-20 text-4xl font-display font-bold italic text-muu-blue">ADMIN: AJUSTES</div>;
+import AdminProducts from './pages/AdminProducts';
+import AdminPromos from './pages/AdminPromos';
+import AdminUsers from './pages/AdminUsers';
+import AdminSettings from './pages/AdminSettings';
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Public app */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="menu" element={<Menu />} />
@@ -25,6 +25,7 @@ function App() {
           <Route path="cart" element={<Cart />} />
         </Route>
 
+        {/* Admin panel */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
           <Route path="products" element={<AdminProducts />} />
@@ -34,7 +35,7 @@ function App() {
         </Route>
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

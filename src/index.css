@@ -1,14 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --color-muu-blue: #3A47CD;
-  /* The vibrant blue from the logo */
   --color-muu-deep: #1F2250;
-  /* Deep navy text */
   --color-muu-cream: #FFF7EF;
-  /* Soft background */
   --color-muu-orange: #FF6B00;
-  /* Electric orange from the logo dot */
   --color-muu-white: #FFFFFF;
 
   --font-display: "Outfit", sans-serif;
@@ -17,107 +14,89 @@
   --radius-muu: 2rem;
 }
 
-@layer utilities {
-  .cow-print {
-    background-color: #ffffff;
-    background-image: radial-gradient(#1f2250 20%, transparent 20%),
-      radial-gradient(#1f2250 20%, transparent 20%);
-    background-position: 0 0, 50px 50px;
-    background-size: 100px 100px;
-    opacity: 0.05;
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light;
+    color: #1F2250;
+    background-color: #FFFFFF;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-width: 320px;
+  }
+
+  body {
+    @apply bg-white text-muu-deep font-sans antialiased min-h-screen;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+  }
+
+  #root {
+    min-height: 100vh;
   }
 }
 
-@layer base {
-  body {
-    @apply bg-white text-muu-deep font-sans antialiased;
+@layer utilities {
+  .cow-print {
+    background-color: transparent;
+    background-image: radial-gradient(ellipse 40px 30px at 25% 35%, #1f2250 100%, transparent 100%),
+      radial-gradient(ellipse 25px 20px at 70% 25%, #1f2250 100%, transparent 100%),
+      radial-gradient(ellipse 35px 25px at 55% 70%, #1f2250 100%, transparent 100%),
+      radial-gradient(ellipse 20px 30px at 10% 65%, #1f2250 100%, transparent 100%),
+      radial-gradient(ellipse 30px 22px at 85% 60%, #1f2250 100%, transparent 100%);
+    background-size: 200px 200px;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 }
 
 @layer components {
   .muu-button-primary {
-    @apply bg-muu-blue text-white rounded-muu py-3 px-6 font-semibold active:scale-95 transition-all shadow-md hover:shadow-lg disabled:opacity-50;
+    @apply bg-muu-blue text-white rounded-muu py-3 px-6 font-bold active:scale-95 transition-all shadow-md hover:shadow-lg hover:bg-muu-blue/90 disabled:opacity-50 cursor-pointer;
   }
 
   .muu-button-secondary {
-    @apply bg-muu-cream text-muu-blue rounded-muu py-3 px-6 font-semibold active:scale-95 transition-all shadow-sm hover:shadow-md disabled:opacity-50;
+    @apply bg-muu-cream text-muu-blue rounded-muu py-3 px-6 font-bold active:scale-95 transition-all shadow-sm hover:shadow-md disabled:opacity-50 cursor-pointer;
   }
 
   .muu-card {
-    @apply bg-muu-cream rounded-muu p-4 shadow-sm border border-muu-blue/5;
-  }
-}
-
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light;
-  color: #1F2250;
-  background-color: #FFFFFF;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
+    @apply bg-white rounded-muu p-6 shadow-sm border border-muu-blue/5;
   }
 }
